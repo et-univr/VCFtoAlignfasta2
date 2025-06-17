@@ -1,8 +1,3 @@
-#import vcf
-
-#vcf_reader = vcf.Reader(filename='DANSNP.vcf')
-#record = next(vcf_reader)
-#print(record.POS)
 import vcf
 import pandas as pd
 
@@ -43,13 +38,12 @@ def create_snp_matrix(vcf_files):
 
     return snp_df
 
-# applica la funzione su tutti i vcf della cartella corrente
+
 vcf_files = [ ]
 import os
-for file in os.listdir(os.getcwd()):#"C:/Users/HP/Desktop/Miceti/Fungi/VCFtotalifiltrati/Allineamento SNP/"
+for file in os.listdir(os.getcwd()):
     if file.endswith(".vcf"):
-        vcf_files.append(os.path.join(os.getcwd(), file))#"C:/Users/HP/Desktop/Miceti/Fungi/VCFtotalifiltrati/Allineamento SNP/"
-
+        vcf_files.append(os.path.join(os.getcwd(), file))
 
 snp_matrix = create_snp_matrix(vcf_files)
 print(snp_matrix)
